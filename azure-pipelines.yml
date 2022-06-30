@@ -1,0 +1,15 @@
+name: 'Playwright E2E Testing'
+
+trigger:
+- playw_framework
+
+stages:
+- stage: e2e_testing_stage
+  displayName: 'E2E Testing'
+  jobs:
+  - job: e2e_testing_job
+    displayName: 'Run E2E tests'
+    pool:
+      name: 'COAP-FO-1'
+    steps:
+      - template: devops/e2e.testing.yml
