@@ -58,6 +58,22 @@ export default class UIActions {
   }
 
   /**
+   * Returns Inner Text of element
+   * @param webElement 
+   * @returns
+   */
+public async getText(
+  webElement: string,
+  //value: string,
+  ){
+  this.page.waitForSelector(webElement)
+  let element =  this.page.$(webElement)
+  let value =   await this.page.evaluate(async el => (await el).textContent, element)
+  console.log("Text value is --"+value);
+  return value;
+}
+
+  /**
    * Returns the instance of editbox actions
    * @param selector
    * @param description
@@ -171,6 +187,8 @@ export default class UIActions {
       await this.page.waitForLoadState();
     });
   }
+
+  
 
   /**
    * Returns when the required dom content is in loaded state.

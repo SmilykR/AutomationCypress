@@ -24,6 +24,11 @@ export default class HomeSteps {
             await this.ui.goto(process.env.BASE_FPPM_URL);
         });
     }
+    else if (url == "IA"){
+        await test.step(`Launching the IA application`, async () => {
+            await this.ui.goto(process.env.BASE_IA_URL);
+        });
+    }
     }
     /**
      * Log into the application
