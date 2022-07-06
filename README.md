@@ -1,20 +1,84 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# playwright-sample-project
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## **Overview:**
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+This is a sample Playwright project using Typescript as scripting language and uses playwright-testrunner to execute test cases. This is a Data Driven framework focused on separating the test scripts logic and the test data from each other. This allows us to create test automation scripts by passing different sets of test data. The test data set is kept in an external Excel Sheet. The test scripts connect to the external Excel sheet to get the test data. This framework significantly reduces the number of test scripts compared to a modular based framework when we need to test for multiple sets of data for same functionality.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+
+## Features
+
+- This framework has built in library to operate on UI, API  and DB (MSSQL, DB2 & Oracle) boiler plate.
+- Supports execution of tests in different browsers.
+- Test data is stored in an Excel sheet and from this Excel sheet user can control the test cases that needs to be run.
+- User also has full control to run test in different modes from the Excel sheet.
+- Has utility built in for file download, Read PDF files etc.
+- Generates Playwright's HTML Report, Allure Report & JUnit Report in HTML format for each exaction. 
+- Allure & Playwright report including snapshots and video in case of test failure.
+- Test execution logs are captured in the log file.
+- All the playwright related config is controlled by playwright config file.
+- Environment variables can be modified at runtime and its controlled by .env file.
+- Easy and simple integration to CI/CD tools like Azure.
+
+#### Supported Browsers
+1. Chrome - default browser
+2. Firefox
+3. MS Edge
+4. WebKit - web browser engine used by Safari
+
+#### Run Mode Details
+| Mode | Execl Value |Description |
+| ------ | ------ | ------ |
+|Normal|Blank| 	Runs the tests sequentially|
+|Serial|serial| 	Runs the tests sequentially. On test failure, all subsequent tests are skipped|
+|Parallel|parallel| 	Runs the tests parallelly, this is ideal when tests in the scenario are independent of one another|
+
+#### Steps to use
+##### 1. Installation
+
+Playwright framework requires [Node.js](https://nodejs.org/) v14+ to run.
+
+
+Installing the dependencies.
+```sh
+npm ci
+```
+##### 2. Test creation
+- Create Test file with extenstion .spec.ts. Eg LoginTest.spec.ts
+- In the testData excel create a sheet with name of test. Eg. LoginTest
+- Create a execution sheet and make an entry of new test case. Eg. in the Regression sheet add a row for new test LoginTest and update other columns like run, mode etc.
+
+##### 3. Execution
+To run test suite use below command.
+```sh
+npm run create:suite SHEET=<SheetName> && npm test
+```
+**Note:** SheetName needs to be updated.
+
+To run individual test locally use below command.
+```sh
+set TEST_NAME=<TestFileName> && npm run local:test
+```
+**Note:** Using set command we are setting the local TestFileName.
+
+To change any environment configuration in .env file at run time use set command.
+Eg: To change browser to MS Edge use below command
+```sh
+set BROWSER=edge
+```
+Similar command can be used to update other environment configuration
+
+To generate Allure report use below command
+```sh
+npm run report
+```
+
+##### 4. Report & Logs
+Playwright HTML report will be present inside
+```sh
+test-results/results/index.html
+```
+Execution log will be present in the log file.
+```sh
+test-results/logs/execution.log
+```
