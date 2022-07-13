@@ -59,6 +59,35 @@ export default class UIElementActions {
     return this;
   }
 
+  public async clickWithDelay() {
+    await test.step(`Clicking on ${this.description}`, async () => {
+      await this.getLocator().click({delay:2000});
+    });
+    return this;
+  }
+
+    /**
+   * Fill in the field
+   * @returns
+   */
+     public async fill(text: string) {
+      await test.step(`Filling in the ${this.description}`, async () => {
+        await this.getLocator().fill(text);
+      });
+      return this;
+    }
+
+        /**
+   * Fill in the field
+   * @returns
+   */
+      public async type(text: string) {
+        await test.step(`Typing in the ${this.description}`, async () => {
+          await this.getLocator().type(text);
+        });
+        return this;
+      }
+
   /**
    * Double click on element
    * @returns

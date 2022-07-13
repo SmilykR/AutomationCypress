@@ -1,0 +1,31 @@
+export default class ReportingMethodsPage{
+    static readonly REPORTINGMETHODS_TAB = "span[title='Reporting Methods']";
+    static readonly COSTACCOUNTINGMETHOD_COMBOBOX =  ".k2-padded-row > div:nth-of-type(2) span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1)";
+    static readonly DATETYPE_COMBOBOX = ".k2-padded-row > div:nth-of-type(4) span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1)";
+    static readonly BUISNESSDAYOFFSET = "[data-scroll='schedule'] .k-icon";
+    static readonly ADDREPORTINGSCHEDULEPLUS_ICON = ".k2-add-entity";
+    static readonly AGENTADMINISTRATION_TAB = "span[title='Agent Administration']";
+    static readonly ADDREPORTINGMETHOD_BUTTON = "span[title='Add Reporting Method']";
+    static readonly SAVE_BUTTON = "button[data-ap='Save']";
+    static readonly NAME_FIELD = "input[data-ap='name']";
+    static readonly REPORTINGSCHEDULENAME = "[data-bind='kendoK2TextBox: bindings.schedule.name']";
+    static readonly MONTH_FIELD = "[data-bind='kendoK2TextBox: { value: month }']";
+    static readonly DAY_FIELD = "[data-bind='kendoK2TextBox: { value: day }']";
+    static readonly REPORTINGMETHODID_FIELD = "[data-bind='visible: !isNew()'] > .form-group > .k-textbox";
+    static readonly REMOVENAVIGATIONPANELITEMCROSS_ICON = ".nav-item > .fa-times";
+    static readonly SEARCH_FIELD = "#reportingMethods > :nth-child(1) > .k2-entity-search > .row > .col-2 > .k-textbox";
+    static readonly COSTACCOUNTINGMETHOD_COMBOBOXFIELD = ".k2-padded-row > div:nth-of-type(2) span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1)";
+    static readonly DATETYPE_COMBOBOXFIELD = ".k2-padded-row > div:nth-of-type(4) span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1) > span:nth-of-type(1)";
+    static readonly RESET_BUTTON ="i[class = 'fa fa-ban k2-reset']";
+    static readonly VIEWDETAIL_BUTTON = ".k2-content.k2-active > aside.k2-active > .k2-workspace-actions > .k2-vscroll > :nth-child(1) > .nav > :nth-child(2) > .nav-link > span";
+    static readonly VIEW_CELL = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>tbody>tr>td >> nth=0";
+    static readonly NAME_CELL = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>tbody>tr>td >> nth=1";
+    static readonly COSTACCOUNTINGMETHODOLOGY_CELL = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>tbody>tr>td >> nth=2";
+    static readonly DATETYPE_CELL = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>tbody>tr>td >> nth=4";
+    static readonly VIEW_COLUMN = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>thead>tr>th >> nth=0";
+    static readonly NAME_COLUMN = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>thead>tr>th >> nth=1";
+    static readonly COSTACCOUNTINGMETHODOLOGY_COLUMN = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>thead>tr>th >> nth=2";
+    static readonly DATETYPE_COLUMN = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>thead>tr>th >> nth=4";
+    //static readonly REPORTINGMETHODS_ARRAY = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>tbody>tr>td >> nth=1";
+    static readonly REPORTINGMETHODS_ARRAY = "div[id = 'reportingMethods']>div>div>div>div>div>div>div>div>table>tbody>tr>td:nth-child(2)";
+}

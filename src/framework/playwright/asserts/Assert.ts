@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Locator } from "@playwright/test";
 
 export default class Assert {
     /**
@@ -29,6 +29,44 @@ export default class Assert {
         await test.step(`Verifying that ${description} contains text '${value2}'`, async () => {
             try {
                 expect(value1, `'${value1}' is expected to CONTAIN '${value2}'`).toContain(value2);
+            } catch (error) {
+                if (!softAssert) {
+                    throw new Error(error);
+                }
+            }
+        });
+    }
+
+    /**
+     * To verify that value1 contains value2
+     * @param value1 - Locator input
+     * @param value2 - should be present in value1
+     * @param description - description of element that is being validated
+     * @param softAssert - for soft asserts this has to be set to true, else this can be ignored
+     */
+     public static async assertHasText(value1: Locator, value2: string, description: string, softAssert = false) {
+        await test.step(`Verifying that ${description} contains text '${value2}'`, async () => {
+            try {
+                expect(value1, `'${value1}' is expected to CONTAIN '${value2}'`).toHaveText(value2);
+            } catch (error) {
+                if (!softAssert) {
+                    throw new Error(error);
+                }
+            }
+        });
+    }
+
+    /**
+     * To verify that value1 contains value2
+     * @param value1 - Locator input
+     * @param value2 - should be present in value1
+     * @param description - description of element that is being validated
+     * @param softAssert - for soft asserts this has to be set to true, else this can be ignored
+     */
+     public static async assertHasValue(value1: Locator, value2: string, description: string, softAssert = false) {
+        await test.step(`Verifying that ${description} contains text '${value2}'`, async () => {
+            try {
+                expect(value1, `'${value1}' is expected to CONTAIN '${value2}'`).toHaveValue(value2);
             } catch (error) {
                 if (!softAssert) {
                     throw new Error(error);
@@ -224,4 +262,5 @@ export default class Assert {
             }
         });
     }
+
 }

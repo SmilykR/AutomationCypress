@@ -5,7 +5,7 @@ import ExcelUtil from "@utils/ExcelUtil";
 import HomePage from "@uiSteps/ia/HomeSteps";
 import { ldata } from "../resources/data/data";
 import { APIRequestContext } from "@playwright/test";
-import InstrumentPage from "@pages/ia/InstrumentPage";
+import InstrumentPage from "@pages/ia/InstrumentsPage";
  
 const SHEET = "LoginTest";
 let home: HomeSteps;

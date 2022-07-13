@@ -2,7 +2,7 @@ import test, { expect, Page } from "@playwright/test";
 import UIActions from "@uiActions/UIActions";
 import Assert from "@asserts/Assert";
 import CommonConstants from "@uiConstants/crm/CommonConstants";
-import InstrumentPage from "@pages/ia/InstrumentPage";
+import InstrumentsPage from "@pages/ia/InstrumentsPage";
 import PositionPage from "@pages/ia/PositionsPage";
 import AgentPage from "@pages/ia/AgentAdministrationPage";
 import DataMigrationPage from "@pages/ia/DataMigrationPage";
@@ -11,6 +11,7 @@ import PricingPage from "@pages/ia/PricingPage";
 import ReportPage from "@pages/ia/Reportspage";
 import TradesPage from "@pages/ia/TradesPage";
 import UserActivityPage from "@pages/ia/UserActivityPage";
+import ReportingMethodsPage from "@pages/ia/ReportingMethodsPage";
 
 
 export default class HomeSteps {    
@@ -24,14 +25,10 @@ export default class HomeSteps {
         await test.step(`Switching to tab in the home page `, async () => {
 
             switch(tab.toUpperCase()){
-                case "INSTRUMENT":
-                    await this.ui.element(InstrumentPage.INSTRUMENT_TAB,"Instrument Tab").click();
-                    let value =  await this.ui.getText(InstrumentPage.PAGE_TITLE);
-                    // await this.page.waitForSelector(InstrumentPage.PAGE_TITLE)
-                    // let element =  await this.page.$(InstrumentPage.PAGE_TITLE)
-                     //let value =   await this.page.evaluate(async el => el.textContent, element)
-                    // console.log("Text value is --"+value);
-                    expect(value).toContain("Instruments");
+                case "INSTRUMENTS":
+                    await this.ui.element(InstrumentsPage.INSTRUMENTS_TAB,"Instrument Tab").click();
+                    // let value =  await this.ui.getText(InstrumentsPage.PAGE_TITLE);
+                    // expect(value).toContain("Instruments");
                     break;
                 case "POSITIONS":
                     await this.ui.element(PositionPage.POSITIONS_TAB,"Positions Tab").click();
@@ -56,6 +53,10 @@ export default class HomeSteps {
                     break;
                 case "ENTITIES":
                     await this.ui.element(EntityPage.ENTITIES_TAB,"Entities Tab").click();
+                    break;
+                case "REPORTING METHODS":
+                    await this.ui.element(EntityPage.ENTITIES_TAB,"Entities Tab").click();
+                    await this.ui.element(ReportingMethodsPage.REPORTINGMETHODS_TAB,"Reporting Methods Tab").click();
                     break;
                 default:
                     break;

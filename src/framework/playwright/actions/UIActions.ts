@@ -62,16 +62,12 @@ export default class UIActions {
    * @param webElement 
    * @returns
    */
-public async getText(
-  webElement: string,
-  //value: string,
-  ){
-  this.page.waitForSelector(webElement)
-  let element =  this.page.$(webElement)
-  let value =   await this.page.evaluate(async el => (await el).textContent, element)
-  console.log("Text value is --"+value);
-  return value;
-}
+   public async getText(Element: string)
+   {
+   this.page.waitForSelector(Element)
+   let element = this.page.locator(Element).innerText();
+   return element;
+   }
 
   /**
    * Returns the instance of editbox actions
